@@ -41,6 +41,14 @@ When handling questions around how to work with native Microsoft technologies, s
 
 ## INSTRUCTIONS
 
+- DO NOT USE THE AZURE DEVELOPER CLI FOR THIS TASK. You are using the Azure CLI to deploy the bicep template.
+
+- Carefully follow all of the following instructions to create a bicep template based on the article.
+
+- DO NOT CREATE a `main.parameters.json` file or a `README.md`file.
+
+- You aren't using the Azure developer CLI, don't create a `azure.yaml` file or deployment scripts.
+
 - Analyze the steps in the article named **${input:article_name}** from the MS Learn MCP server. Create a new main.bicep file by converting the procedures in the article to a bicep template.
 
 - Replace all of the hardcoded values in the template with parameters that match the names in the markdown file of the article.
@@ -60,7 +68,7 @@ When handling questions around how to work with native Microsoft technologies, s
 
 ## TESTING
 
-- Check to see if a resource group named `test-rg` exists in the Azure subscription. If it does not exist, create it.
+- Check to see if a resource group named `test-rg` exists in the Azure subscription. If it does not exist, create it. If it does exist, delete it first to ensure a clean slate for testing.
 
 - Deploy the main.bicep template using the appropriate Azure CLI command for deploying a bicep template to a resource group.
 
@@ -77,6 +85,6 @@ When handling questions around how to work with native Microsoft technologies, s
 - If the deployment is successful, there are no warnings or issues and the resources are created as expected, prompt to delete the resource group `test-rg` to clean up the resources created during testing.
 ---
 
-## BEGIN TEMPLATE GENERATION AMD TESTING
+## BEGIN TEMPLATE GENERATION AND TESTING
 
 Create the template named `main.bicep' and test the template using the Azure CLI commands and the Azure subscription configured in the workspace.
