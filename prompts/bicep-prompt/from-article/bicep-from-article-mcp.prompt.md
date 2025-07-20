@@ -87,4 +87,4 @@ When handling questions around how to work with native Microsoft technologies, s
 
 ## BEGIN TEMPLATE GENERATION AND TESTING
 
-Create the template named `main.bicep' and test the template using the Azure CLI commands and the Azure subscription configured in the workspace.
+Ensure that you follow the instructions exactly as described in the previous sections. Create the template named `main.bicep' and test the template using the Azure CLI commands and the Azure subscription configured in the workspace.
