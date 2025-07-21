@@ -66,7 +66,7 @@ Follow all of the guidance below carefully:
 
 ## TESTING
 
-- Check to see if a resource group named `test-rg` exists in the Azure subscription. If it does not exist, create it.
+- Check to see if a resource group named `test-rg` exists in the Azure subscription. If it does not exist, create it. If the resource group does exist, delete it first to ensure a clean slate for testing.
 
 - Deploy the main.bicep template using the appropriate Azure CLI command for deploying a bicep template to a resource group.
 
@@ -83,6 +83,6 @@ Follow all of the guidance below carefully:
 - If the deployment is successful, there are no warnings or issues and the resources are created as expected, prompt to delete the resource group `test-rg` to clean up the resources created during testing.
 ---
 
-## BEGIN TEMPLATE GENERATION AMD TESTING
+## BEGIN TEMPLATE GENERATION AND TESTING
 
 Create the template named `main.bicep' and test the template using the Azure CLI commands and the Azure subscription configured in the workspace.
