@@ -43,9 +43,13 @@ When handling questions around how to work with native Microsoft technologies, s
 
 - DO NOT USE THE AZURE DEVELOPER CLI FOR THIS TASK. You are using the Azure CLI to deploy the bicep template.
 
-- Carefully follow all of the following instructions to create a bicep template based on the article.`
+- Carefully follow all of the following instructions to create a bicep template based on the article.
 
-- DO NOT CREATE a `main.parameters.json` file or a `README.md`file.
+- DO NOT CREATE a `main.parameters.json` file.
+
+- DO NOT CREATE a `readme.md` file.
+
+- Only create a `main.bicep` file.
 
 - You aren't using the Azure developer CLI, don't create a `azure.yaml` file or deployment scripts.
 
