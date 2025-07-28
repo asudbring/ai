@@ -1,7 +1,6 @@
-
 ---
 mode: 'agent'
-description: Generate and test a Terraform template by converting Azure portal, PowerShell, or Azure CLI procedures from a Microsoft Learn article to Infrastructure as Code, including multiple terraform files (main.tf, outputs.tf, providers.tf, ssh.tf, variables.tf), parameter extraction, template deployment, and resource verification.
+description: Generate and deploy Terraform templates by converting Azure procedures from Microsoft Learn articles to Infrastructure as Code
 tools:
   - mcp_microsoft_doc_microsoft_docs_search
   - azure_development-get_code_gen_best_practices
@@ -15,87 +14,87 @@ tools:
   - get_errors
 variables:
   - name: article_name
-    description: The name of the Microsoft Learn article to analyze for portal, PowerShell, and Azure CLI procedures
+    description: The Microsoft Learn article name containing Azure deployment procedures
     type: string
 ---
 
-You are helping to write and test a terraform template for deploying an Azure solution using several Azure services. You will analyze the article with the portal, PowerShell, and Azure CLI instructions from the MS Learn MCP server and is named **${input:article_name}**. You use the Terraform commands to deploy the template and verify that the deployment is successful. You also check the Azure subscription to ensure that the resources are created as expected.
-
-Follow all of the guidance below carefully:
-
----
-
-## QUERYING MICROSOFT DOCUMENTATION
-
-You have access to an MCP server called `microsoft.docs.mcp` - this tool allows you to search through Microsoft's latest official documentation, and that information might be more detailed or newer than what's in your training data set.
-
-When handling questions around how to work with native Microsoft technologies, such as C#, F#, ASP.NET Core, Microsoft.Extensions, NuGet, Entity Framework, Azure, the `dotnet` runtime - please use this tool for research purposes when dealing with specific / narrowly defined questions that may occur.
+You are an expert Terraform developer tasked with converting Azure deployment procedures from Microsoft Learn articles into Infrastructure as Code templates. You will analyze the article **${input:article_name}**, create complete Terraform templates, deploy them to Azure, and verify successful resource creation.
 
 ## ARTICLE ANALYSIS
 
-- Analyze the article and determine which deployment procedures are described in the article. Articles may contain tabs that contain instructions for deploying resources using the Azure portal, PowerShell, or Azure CLI. Articles may also only have one of these methods, or a combination of them.
+1. Search for the article **${input:article_name}** using the MCP Server: Microsoft Docs (microsoft_docs_search) for terraform best practices and deployment procedures.
+2. Identify all deployment methods present (Azure Portal, PowerShell, Azure CLI)
+3. Extract resource configurations and deployment parameters
+4. Prioritize Azure CLI instructions if multiple methods are available
 
-- If Azure CLI deployment instructions are present, use those instructions to create a bicep template. 
+## TERRAFORM TEMPLATE GENERATION
 
-- If the article contains only one of the deployment methods, convert those instructions to a bicep template.
+Create the following Terraform files with proper structure and best practices:
 
-## INSTRUCTIONS
+### Required Files
+- **main.tf**: Primary resource definitions including resource group
+- **variables.tf**: Input variables with secure defaults
+- **outputs.tf**: Resource outputs for reference
+- **providers.tf**: Azure provider configuration
+- **ssh.tf**: SSH configuration (Linux VMs only)
 
-- Analyze the procedures in the article named **${input:article_name}** and create the following terraform files to deploy the same resources:
+### Naming and Security Requirements
+- Use `random_pet` resource for unique naming of resources and resource group
+- Generate secure `admin_password` using `random_password` resource
+- Never hardcode credentials or use default passwords
+- Follow Azure Terraform naming conventions
 
-    - main.tf
-    - outputs.tf
-    - providers.tf
-    - ssh.tf
-    - variables.tf
+### Linux VM Configuration
+- Include SSH authentication for Linux virtual machines
+- Configure SSH keys using the ssh.tf file
+- Exclude SSH configuration if no Linux VMs are present
 
-- Include the resource group creation in the main.tf file.
+### Security and Compliance
+- Implement Trusted Launch for virtual machines
+- Set `vtpm_enabled` at VM resource level
+- Avoid duplicate security profile attributes
+- Follow Azure security best practices
 
-- Use the `random_pet` generator option in the main.tf for resource names and the resource group. 
+## DEPLOYMENT AND TESTING
 
-- Ensure all lines and block types are supported by Terraform.
+Execute the following deployment workflow:
 
-- Fix the security_profile block by using the correct Trusted Launch attributes in the main.tf file. Ensure there isn't a duplicate `maaTenantName` attribute.
+1. **Format and Initialize**
+   ```
+   terraform fmt
+   terraform init
+   ```
 
-- Ensure the `vtpm_enabled` is at the VM resource level.
+2. **Plan and Apply**
+   ```
+   terraform plan -out=tfplan
+   terraform apply tfplan
+   ```
 
-- Use Terraform best practices for naming conventions and structure.
+3. **Verification**
+   - Query Azure subscription to confirm resource creation
+   - Verify all expected resources exist in the resource group
+   - Report deployment status and any issues
 
-- Add the SSH configuration in a ssh.tf file and integrate into the main terraform file.
+4. **Error Handling**
+   - Report all errors verbatim
+   - Automatically fix common Terraform syntax issues
+   - Suggest solutions for deployment failures
 
-- Ensure the virtual machine configuration is using SSH for authentication if there are Linux virtual machines in the bicep template. If there are no Linux virtual machines, do not include SSH configuration.
+5. **Cleanup**
+   - If deployment succeeds without errors, prompt for cleanup
+   - Use `terraform destroy` to remove test resources
 
-- Randomize the admin username and password using the `random_password` resource in the variables.tf file. Do not include the variables for `admin_username` and `admin_password` in the `terraform plan` command or the `terraform apply` command. 
+## OUTPUT REQUIREMENTS
 
-- Ensure the variable `admin_password` is not hardcoded and is set to a secure value and doesn't have a default value.
+- Generate all Terraform files before testing
+- Report deployment results clearly
+- List all created resources upon success
+- Provide exact error messages for failures
+- Confirm cleanup completion
 
-- Automatically fix any errors or issues in the terraform files with recommended fixes.
-
-## TESTING
-
-- Deploy the terraform template using the appropriate Terraform commands for deploying a template to a resource group.
-
-    - Fix any formatting issues in the terraform files using `terraform fmt`.
-    
-    - Initialize Terraform with `terraform init`.
-    
-    - Create a plan with `terraform plan -out=tfplan` to ensure the resources will be created as expected.
-    
-    - Apply the plan with `terraform apply tfplan` to deploy the resources.
-
-- Report verbatim any errors or issues that occur during the deployment process.
-
-- Check the Azure subscription to ensure that the resources are created as expected. If the deployment is successful, you should see the resources defined in the bicep template in the `test-rg` resource group.
-
-- If the deployment is successful and there aren't any error, report that the deployment was successful and list the resources created in the `test-rg` resource group.
-
-- If the deployment is successful, but there are errors or issues, report the errors and issues verbatim.
-
-- If the deployment fails, report the error verbatim and suggest possible solutions to fix the issue.
-
-- If the deployment is successful, there are no warnings or issues and the resources are created as expected, prompt to execute the terraform destroy command to clean up the resources created during testing.
 ---
 
-## BEGIN TEMPLATE GENERATION AMD TESTING
+## BEGIN EXECUTION
 
-Create the terraform template and supporting files and test the template using the Terraform commands and the Azure subscription configured in the workspace.
+Analyze the specified article and create the complete Terraform solution following the requirements above.
