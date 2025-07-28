@@ -1,9 +1,7 @@
-
 ---
 mode: 'agent'
 description: Convert Microsoft Learn article Azure deployment procedures to a Bicep template and test deployment
 tools:
-  - mcp_microsoft_docs_microsoft_docs_search
   - azure_development-get_code_gen_best_practices
   - azure_development-get_deployment_best_practices
   - azure_bicep_schemas-get_bicep_resource_schema
@@ -25,7 +23,7 @@ You will convert Azure deployment procedures from a Microsoft Learn article into
 
 ## Task Overview
 
-1. **Analyze** the article **${input:article_name_or_url}** using the MCP Server: Microsoft Docs (microsoft_docs_search)
+1. **Analyze** the article **${input:article_name_or_url}** using Microsoft Learn website https://learn.microsoft.com/en-us/azure/?product=popular
 2. **Convert** deployment procedures to a Bicep template
 3. **Test** the template deployment in Azure
 4. **Verify** resources are created correctly
@@ -61,10 +59,11 @@ Prioritize Azure CLI instructions when available.
 ## Testing Workflow
 
 1. **Prepare environment:**
-   - Create a resource group with a random name and a suffix of `-test-rg`.
+   - Delete existing `test-rg` resource group if present
+   - Create fresh `test-rg` resource group
 
 2. **Deploy template:**
-   - Use Azure CLI to deploy `main.bicep` to the created resource group
+   - Use Azure CLI to deploy `main.bicep` to `test-rg`
    - Include only auto-generated username/password parameters
 
 3. **Verify deployment:**
@@ -73,7 +72,7 @@ Prioritize Azure CLI instructions when available.
    - Query Azure subscription to confirm expected resources exist
 
 4. **Cleanup:**
-   - Prompt to delete the created resource group when the deployment is successful with no issues
+   - Prompt to delete `test-rg` if deployment successful with no issues
 
 ## Expected Output
 
@@ -82,4 +81,3 @@ Prioritize Azure CLI instructions when available.
 - **Warnings:** Report any deployment warnings
 
 Begin by analyzing the specified Microsoft Learn article and generating the Bicep template.
-
