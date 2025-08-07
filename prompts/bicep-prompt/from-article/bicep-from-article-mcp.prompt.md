@@ -4,6 +4,7 @@ mode: 'agent'
 description: Convert Microsoft Learn article Azure deployment procedures to a Bicep template and test deployment
 tools:
   - mcp_microsoft_docs_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_fetch
   - azure_development-get_code_gen_best_practices
   - azure_development-get_deployment_best_practices
   - azure_bicep_schemas-get_bicep_resource_schema
@@ -25,7 +26,7 @@ You will convert Azure deployment procedures from a Microsoft Learn article into
 
 ## Task Overview
 
-1. **Analyze** the article **${input:article_name_or_url}** using the MCP Server: Microsoft Docs (microsoft_docs_search)
+1. **Analyze** the article **${input:article_name_or_url}** using the MCP Server: Microsoft Docs (microsoft_docs_search) and (microsoft_docs_fetch)
 2. **Convert** deployment procedures to a Bicep template
 3. **Test** the template deployment in Azure
 4. **Verify** resources are created correctly

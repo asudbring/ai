@@ -2,7 +2,8 @@
 mode: 'agent'
 description: Convert Bicep template to Terraform IaC with complete file structure, deployment testing, and resource verification
 tools:
-  - mcp_microsoft_doc_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_fetch
   - azure_development-get_code_gen_best_practices
   - azure_development-get_deployment_best_practices
   - azure_terraform-get_best_practices
@@ -23,7 +24,7 @@ Convert the **${input:bicep_file_name}** Bicep template to equivalent Terraform 
 
 ## TERRAFORM CONVERSION
 
-**Analyze** the **${input:bicep_file_name}** using the MCP Server: Microsoft Docs (microsoft_docs_search) for terraform best practices and deployment procedures.
+**Analyze** the **${input:bicep_file_name}** using the MCP Server: Microsoft Docs (microsoft_docs_search) and (microsoft_docs_fetch) for terraform best practices and deployment procedures.
 
 **Create** these Terraform files.
 
