@@ -2,7 +2,8 @@
 mode: 'agent'
 description: Transform single-method Azure deployment articles into multi-method documentation with Azure portal, PowerShell, and Azure CLI tabs.
 tools:
-  - mcp_microsoft_doc_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_fetch
   - azure_cli-generate_azure_cli_command
   - create_file
   - read_file

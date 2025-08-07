@@ -2,7 +2,8 @@
 mode: 'agent'
 description: Generate and deploy Terraform templates by converting Azure procedures from Microsoft Learn articles to Infrastructure as Code
 tools:
-  - mcp_microsoft_doc_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_search
+  - mcp_microsoft_docs_microsoft_docs_fetch
   - azure_development-get_code_gen_best_practices
   - azure_development-get_deployment_best_practices
   - azure_terraform-get_best_practices
@@ -22,7 +23,7 @@ You are an expert Terraform developer tasked with converting Azure deployment pr
 
 ## ARTICLE ANALYSIS
 
-1. Search for the article **${input:article_name}** using the MCP Server: Microsoft Docs (microsoft_docs_search) for terraform best practices and deployment procedures.
+1. Search for the article **${input:article_name}** using the MCP Server: Microsoft Docs (microsoft_docs_search) and (microsoft_docs_fetch) for terraform best practices and deployment procedures.
 2. Identify all deployment methods present (Azure Portal, PowerShell, Azure CLI)
 3. Extract resource configurations and deployment parameters
 4. Prioritize Azure CLI instructions if multiple methods are available
