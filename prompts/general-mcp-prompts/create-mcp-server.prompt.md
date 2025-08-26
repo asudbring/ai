@@ -53,7 +53,7 @@ Follow all of the guidance below carefully:
 
 - The install script should install all dependencies and set up the server to run locally.
 
-- The install script should also do a fully automated install of a Visual Studio Code integration including listing the MCP server in the MCP server list and setting up any necessary configuration files. Co-pilot chat integration is mandatory and should also be configured.
+- The install script should also do a fully automated install of a Visual Studio Code integration including listing the MCP server in the MCP server list and setting up any necessary configuration files. Copilot chat integration is mandatory and should also be configured.
   - This includes editing the mcp.json file in the .vscode directory to include the new MCP server.
   - Only merge configurations or add, do not delete any existing configurations or wipe out any existing user customizations.
   - Visual Studio Code has a built in MCP client. You will always use this client to connect to the mcp server.
@@ -62,7 +62,7 @@ Follow all of the guidance below carefully:
   - An overview of the MCP server and its purpose.
   - Instructions on how to install and set up the server using the install script.
   - Instructions on how to run the server locally.
-  - Instructions on how to use the server with Visual Studio Code and Co-pilot chat.
+  - Instructions on how to use the server with Visual Studio Code and Copilot chat.
   - Any other relevant information or documentation.
 
 - Ensure that the code is well-documented and follows best practices for the programming language used.
@@ -74,6 +74,13 @@ Follow all of the guidance below carefully:
 
 ## TESTING
 
+- Verify that the MCP server starts successfully without errors on Windows, Mac, and Linux.
+- Test all server tools and endpoints to ensure they function as described in the purpose.
+- Confirm that the server communicates correctly via stdio.
+- Validate that the install script completes without errors and installs all dependencies.
+- Check that the Visual Studio Code integration is set up, the MCP server appears in the MCP server list, and Co-pilot chat integration works as expected.
+- Ensure that existing user configurations in mcp.json are preserved and only merged or added to.
+- Review the README file for completeness and accuracy of instructions.
 
 ## BEGIN GENERATION AND TESTING
 
