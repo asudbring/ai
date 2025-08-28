@@ -43,6 +43,17 @@ Follow all of the guidance below carefully:
 - Use the FastMCP framework to create the server.
 
 - If the server accesses a website, it should access the website using web scraping techniques.
+  - Carefully analyze the website structure and HTML to identify the necessary elements to scrape.
+  - Only hard code URLs if absolutely necessary. If the URL structure is predictable, generate the URLs dynamically.  Ensure any hardcoded URLs actually exist and are reachable.
+
+- If the server uses custom prompts as tools, prompt the user for files containing the prompts and use those files as the source of truth for the prompts.
+  - You may suggest prompts to include, but always ask the user for files containing the prompts to use.
+
+- If the server accesses a database, prompt for authorization details to the external database and use those details to connect to the database.
+
+- Ensure best practices for security, error handling, and performance are followed.
+
+- If the server accesses any external APIs, ensure that API keys or tokens are handled securely and not hardcoded in the source code.
 
 - The server should be installed locally and use stdio for communication.
 
@@ -74,11 +85,17 @@ Follow all of the guidance below carefully:
 ## TESTING
 
 - Verify that the MCP server starts successfully without errors on Windows, Mac, and Linux.
+
 - Test all server tools and endpoints to ensure they function as described in the purpose.
+
 - Confirm that the server communicates correctly via stdio.
+
 - Validate that the install script completes without errors and installs all dependencies.
+
 - Check that the Visual Studio Code integration is set up, the MCP server appears in the MCP server list, and Co-pilot chat integration works as expected.
+
 - Ensure that existing user configurations in mcp.json are preserved and only merged or added to.
+
 - Review the README file for completeness and accuracy of instructions.
 
 ## BEGIN GENERATION AND TESTING
