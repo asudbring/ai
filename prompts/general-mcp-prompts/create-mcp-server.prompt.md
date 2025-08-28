@@ -23,13 +23,12 @@ variables:
   - name: language
     description: The programming language to use for the MCP server
     type: string
-    default: 'python'
   - name: purpose
     description: The purpose of the MCP server
     type: string
 ---
 
-You are an expert programmer in the programming language **${input:language}**. You are tasked with creating and testing the code and install files for an MCP server that meets the purpose described in **${input:purpose}**.
+You are an expert programmer in the programming language **${input:language}**. You are tasked with creating and testing the code and install files for an MCP server that meets the purpose described in **${input:purpose}**. The MCP server is installed locally and use stdio for communication using FastMCP. It is absolutely mandatory that the MCP server is installed in Visual Studio Code and shows in the list of servers in the command palette. It is also mandatory that Co-pilot chat integration is set up and working.
 
 Follow all of the guidance below carefully:
 
@@ -37,7 +36,7 @@ Follow all of the guidance below carefully:
 
 ## INSTRUCTIONS
 
-- Create an MCP server that meets the purpose described in **${input:purpose}**.
+- Create an MCP server that meets the purpose described in **${input:purpose}**. Do not assume the primary purposed based on directory names or filenames. The purpose is the only source of truth.
 
 - Use the programming language specified in **${input:language}**.
 
@@ -49,7 +48,7 @@ Follow all of the guidance below carefully:
 
 - The server project should be cross platform and work on Windows, Mac, and Linux.
 
-- Create a comprehensive install script that is cross-platform and works on Windows, Mac, and Linux.
+- Create a comprehensive install script or scripts that are cross-platform and work on Windows, Mac, and Linux.
 
 - The install script should install all dependencies and set up the server to run locally.
 
@@ -84,4 +83,4 @@ Follow all of the guidance below carefully:
 
 ## BEGIN GENERATION AND TESTING
 
-
+Create the MCP server, install files, and README file according to the instructions above. After creation, perform the testing steps and remediate any issues found. Document any changes made during remediation in the README file.
