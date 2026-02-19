@@ -1,4 +1,3 @@
-
 ---
 mode: 'agent'
 description: Generate and test a Terraform template by converting Azure portal, PowerShell, or Azure CLI procedures from a Microsoft Learn article to Infrastructure as Code, including multiple terraform files (main.tf, outputs.tf, providers.tf, ssh.tf, variables.tf), parameter extraction, template deployment, and resource verification.
