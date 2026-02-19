@@ -22,8 +22,6 @@ You are helping to write and test a terraform template for deploying an Azure so
 
 Follow all of the guidance below carefully:
 
----
-
 ## ARTICLE ANALYSIS
 
 - Analyze the article and determine which deployment procedures are described in the article. Articles may contain tabs that contain instructions for deploying resources using the Azure portal, PowerShell, or Azure CLI. Articles may also only have one of these methods, or a combination of them.
